@@ -39,7 +39,7 @@ This project solves the problem by **automatically generating** flashcards, savi
 ## 📂 Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/flashcard-creator.git
+   git clone https://github.com/Pooja-9703/RecallBot.git
    ```
 2. Open the `index.html` file in your browser.
 3. Enter a topic to generate flashcards instantly.
@@ -47,10 +47,5 @@ This project solves the problem by **automatically generating** flashcards, savi
 > Make sure to insert your Gemini API key in the JavaScript file if required.
 
 ## 📎 GitHub Repository
-[GitHub Link Here]
+[https://github.com/Pooja-9703/RecallBot]
 
----
-
-Would you also like a **small badge-style "Demo GIF" section** at the top?  
-It looks super cool and professional, especially if you're submitting this for a project or showcasing it later! 🚀  
-(If yes, I can show you how to add it!)
