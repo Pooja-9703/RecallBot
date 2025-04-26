@@ -1,7 +1,7 @@
 // flash_client.js
 
 const API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-2.0-flash:generateContent";
-const GOOGLE_API_KEY = "AIzaSyDGY5J3oKDTTHeXdlSRAsoZyj72TF0Kjg4"; // <-- Replace with your actual key
+const GOOGLE_API_KEY = "YOUR_API_KEY_HERE"; // <-- Replace with your actual key
 
 const flashcardKeywords = ["flashcard", "study", "revise", "topic", "generate", "summarize"];
 
