@@ -1,0 +1,71 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Flashcard Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>📚 RecallBot</h1>
+    <h2>AI Personalised FlashCard Creator</h2>
+    <div id="flashcard-container" class="flashcard-container">
+
+      <div class="msg bot">
+        Welcome to RecallBot! 👋 Enter any topic to generate 5 study flashcards.
+      </div>
+    </div>
+
+    <div id="loading" class="loading" style="display: none;">Generating flashcards</div>
+
+    <div class="input-area">
+      <input type="text" id="user-input" placeholder="Enter a topic to generate flashcards..." />
+      <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <script src="flash_client.js"></script>
+  <script>
+    const input = document.getElementById("user-input");
+    const sendBtn = document.getElementById("send-btn");
+    const chatBox = document.getElementById("flashcard-container");
+
+    function appendMessage(sender, message) {
+      const msg = document.createElement("div");
+      msg.className = sender === "user" ? "msg user" : "msg bot";
+      msg.textContent = message;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    sendBtn.addEventListener("click", async () => {
+      const message = input.value.trim();
+      if (!message) return;
+
+      input.value = "";
+      chatBox.innerHTML = ""; // Clear old flashcards before new ones
+
+      
+      document.getElementById("loading").style.display = "block";
+      const response = await getFlashcardResponse(message);
+      document.getElementById("loading").style.display = "none";
+      
+
+      renderFlashcards(response);
+    });
+
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") sendBtn.click();
+    });
+    
+    // Focus input on page load
+    window.onload = function() {
+      document.getElementById("user-input").focus();
+    };
+  </script>
+</body>
+</html>
